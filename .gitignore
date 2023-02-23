@@ -3,3 +3,4 @@ app/migrations
 Deploy/__pycache__
 env
 db.sqlite3
+Deploy/.env
