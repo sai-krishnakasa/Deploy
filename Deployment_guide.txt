@@ -1,4 +1,6 @@
  
+ 
+Ref Video:https://www.youtube.com/watch?v=AgTr5mw4zdI
 1) register and create an account in render.com (A platform to host django website 
 just like AWS)
 
