@@ -1,0 +1,47 @@
+ 
+1) register and create an account in render.com (A platform to host django website 
+just like AWS)
+
+2)Once you are registered create a postgres database in it
+
+3)create an env 
+Important packages to install are 
+asgiref==3.6.0
+dj-database-url==1.2.0
+Django==4.1.7
+django-environ==0.9.0
+gunicorn==20.1.0
+psycopg2==2.9.5
+sqlparse==0.4.3
+tzdata==2022.7
+
+Save these in a file requirements.txt which helps in creating build.
+
+4)Change Database settings in django app:
+import dj_database_url
+Note:- The Database url is the External databse url provided by render
+DATABASES={
+    'default':dj_database_url.parse(env('DATABASE_URL'))
+}
+
+5)use python environ to keep the database_urls and secret_key private 
+i,e:checkout https://github.com/sai-krishnakasa/Deploy
+
+6)run the server and makemigrations should run slow as it is a remote database
+
+7)connect github with render
+
+7)upload all your code to github and makesure allowed hosts to all in django settings
+
+8)now select webservice in render and change start command to 
+
+	gunicorn project_name.wsgi:application
+
+9)Now click on Advance setting in webservice page and add environment variables
+
+add PYTHON_VERSION(key)         3.10.6(value)
+    DATABASE_URL(key)           internal database url from postrgres database created earlier
+ 
+
+ans click on start web service..That's it...you will get a domain url through which we can access the
+django application
